@@ -48,17 +48,17 @@ export default function ProductCard({
            }}
 >
 <img
-             src={item.logo}
-             alt={item.name}
-             style={{
-               width: "42px",
-               height: "42px",
-               borderRadius: "12px",
-               objectFit: "contain",
-               background: "white",
-               padding: "6px",
-             }}
-           />
+ src={item.logo}
+ alt={item.name}
+ style={{
+   width: "52px",
+   height: "52px",
+   objectFit: "contain",
+   borderRadius: "14px",
+   background: "white",
+   padding: "6px",
+ }}
+/>
 
 <div
              style={{
