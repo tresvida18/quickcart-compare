@@ -1,51 +1,20 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ProductCard from '@/components/ProductCard'
-import { supabase } from '@/components/supabase'
+import { products } from '@/components/data/products'
 export default function Home() {
  const [product, setProduct] = useState('')
  const [results, setResults] = useState<any[]>([])
  const [filteredProducts, setFilteredProducts] = useState<string[]>([])
- const [productsData, setProductsData] = useState<any[]>([])
- useEffect(() => {
-   fetchProducts()
- }, [])
- const fetchProducts = async () => {
-   const { data, error } = await supabase
-     .from('products')
-     .select('*')
-   if (error) {
-     console.error(error)
-     return
-   }
-   setProductsData(data)
- }
  const comparePrices = () => {
-   const found = productsData.find(
+   const found = products.find(
      (p) => p.name.toLowerCase() === product.toLowerCase()
    )
    if (!found) {
      setResults([])
      return
    }
-   const formattedResults = [
-     {
-       name: 'Blinkit',
-       price: found.blinkit_price,
-       time: found.blinkit_time
-     },
-     {
-       name: 'Zepto',
-       price: found.zepto_price,
-       time: found.zepto_time
-     },
-     {
-       name: 'Instamart',
-       price: found.instamart_price,
-       time: found.instamart_time
-     }
-   ]
-   setResults(formattedResults)
+   setResults(found.results)
    setFilteredProducts([])
  }
  const handleSearch = (value: string) => {
@@ -54,7 +23,7 @@ export default function Home() {
      setFilteredProducts([])
      return
    }
-   const matches = productsData
+   const matches = products
      .filter((item) =>
        item.name.toLowerCase().startsWith(value.toLowerCase())
      )
@@ -83,7 +52,7 @@ export default function Home() {
        justifyContent: 'center',
        alignItems: 'center',
        padding: '30px',
-       fontFamily: 'Inter, sans-serif'
+       fontFamily: 'Inter, sans-serif',
      }}
 >
 <div
@@ -95,13 +64,13 @@ export default function Home() {
          backdropFilter: 'blur(18px)',
          borderRadius: '28px',
          padding: '28px',
-         boxShadow: '0 25px 50px rgba(0,0,0,0.45)'
+         boxShadow: '0 25px 50px rgba(0,0,0,0.45)',
        }}
 >
 <div
          style={{
            textAlign: 'center',
-           marginBottom: '24px'
+           marginBottom: '24px',
          }}
 >
 <h1
@@ -110,7 +79,7 @@ export default function Home() {
              lineHeight: '46px',
              marginBottom: '12px',
              fontWeight: '800',
-             color: 'white'
+             color: 'white',
            }}
 >
            ⚡ QuickCart Compare
@@ -118,7 +87,7 @@ export default function Home() {
 <p
            style={{
              color: '#94a3b8',
-             fontSize: '15px'
+             fontSize: '15px',
            }}
 >
            Compare prices instantly across apps
@@ -127,7 +96,7 @@ export default function Home() {
 <div
          style={{
            position: 'relative',
-           marginBottom: '18px'
+           marginBottom: '18px',
          }}
 >
 <input
@@ -144,7 +113,7 @@ export default function Home() {
              color: 'white',
              fontSize: '15px',
              outline: 'none',
-             boxSizing: 'border-box'
+             boxSizing: 'border-box',
            }}
          />
          {filteredProducts.length > 0 && (
@@ -158,7 +127,7 @@ export default function Home() {
                border: '1px solid #1e293b',
                borderRadius: '14px',
                overflow: 'hidden',
-               zIndex: 20
+               zIndex: 20,
              }}
 >
              {filteredProducts.map((item) => (
@@ -172,7 +141,7 @@ export default function Home() {
                    padding: '14px 16px',
                    cursor: 'pointer',
                    borderBottom: '1px solid #0f172a',
-                   color: 'white'
+                   color: 'white',
                  }}
 >
                  {item}
@@ -193,7 +162,7 @@ export default function Home() {
            fontWeight: '800',
            fontSize: '16px',
            cursor: 'pointer',
-           marginBottom: '24px'
+           marginBottom: '24px',
          }}
 >
          Compare Prices
