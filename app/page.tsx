@@ -51,132 +51,148 @@ export default function Home() {
        display: 'flex',
        justifyContent: 'center',
        alignItems: 'center',
-       padding: '30px',
+       padding: '30px 16px',
        fontFamily: 'Inter, sans-serif',
      }}
 >
 <div
        style={{
          width: '100%',
-         maxWidth: '430px',
-         background: 'rgba(15,23,42,0.88)',
-         border: '1px solid rgba(148,163,184,0.15)',
-         backdropFilter: 'blur(18px)',
-         borderRadius: '28px',
-         padding: '28px',
-         boxShadow: '0 25px 50px rgba(0,0,0,0.45)',
+         maxWidth: '1100px',
+         display: 'flex',
+         flexDirection: 'column',
+         alignItems: 'center',
        }}
 >
 <div
          style={{
-           textAlign: 'center',
-           marginBottom: '24px',
+           width: '100%',
+           maxWidth: '430px',
+           background: 'rgba(15,23,42,0.88)',
+           border: '1px solid rgba(148,163,184,0.15)',
+           backdropFilter: 'blur(18px)',
+           borderRadius: '28px',
+           padding: '28px',
+           boxShadow: '0 25px 50px rgba(0,0,0,0.45)',
          }}
 >
-<h1
+<div
            style={{
-             fontSize: '42px',
-             lineHeight: '46px',
-             marginBottom: '12px',
-             fontWeight: '800',
-             color: 'white',
+             textAlign: 'center',
+             marginBottom: '24px',
            }}
 >
-           ⚡ QuickCart Compare
+<h1
+             style={{
+               fontSize: '42px',
+               lineHeight: '46px',
+               marginBottom: '12px',
+               fontWeight: '800',
+               color: 'white',
+             }}
+>
+             ⚡ QuickCart Compare
 </h1>
 <p
-           style={{
-             color: '#94a3b8',
-             fontSize: '15px',
-           }}
+             style={{
+               color: '#94a3b8',
+               fontSize: '15px',
+             }}
 >
-           Compare prices instantly across apps
+             Compare prices instantly across apps
 </p>
 </div>
 <div
-         style={{
-           position: 'relative',
-           marginBottom: '18px',
-         }}
+           style={{
+             position: 'relative',
+             marginBottom: '18px',
+           }}
 >
 <input
-           type="text"
-           value={product}
-           onChange={(e) => handleSearch(e.target.value)}
-           placeholder="Search groceries..."
+             type="text"
+             value={product}
+             onChange={(e) => handleSearch(e.target.value)}
+             placeholder="Search groceries..."
+             style={{
+               width: '100%',
+               padding: '16px',
+               borderRadius: '16px',
+               border: '1px solid #1e293b',
+               background: '#020617',
+               color: 'white',
+               fontSize: '15px',
+               outline: 'none',
+               boxSizing: 'border-box',
+             }}
+           />
+           {filteredProducts.length > 0 && (
+<div
+               style={{
+                 position: 'absolute',
+                 top: '105%',
+                 left: 0,
+                 width: '100%',
+                 background: '#020617',
+                 border: '1px solid #1e293b',
+                 borderRadius: '14px',
+                 overflow: 'hidden',
+                 zIndex: 20,
+               }}
+>
+               {filteredProducts.map((item) => (
+<div
+                   key={item}
+                   onClick={() => {
+                     setProduct(item)
+                     setFilteredProducts([])
+                   }}
+                   style={{
+                     padding: '14px 16px',
+                     cursor: 'pointer',
+                     borderBottom: '1px solid #0f172a',
+                     color: 'white',
+                   }}
+>
+                   {item}
+</div>
+               ))}
+</div>
+           )}
+</div>
+<button
+           onClick={comparePrices}
            style={{
              width: '100%',
              padding: '16px',
              borderRadius: '16px',
-             border: '1px solid #1e293b',
-             background: '#020617',
-             color: 'white',
-             fontSize: '15px',
-             outline: 'none',
-             boxSizing: 'border-box',
+             border: 'none',
+             background: 'linear-gradient(90deg,#84cc16,#4ade80)',
+             color: '#052e16',
+             fontWeight: '800',
+             fontSize: '16px',
+             cursor: 'pointer',
+             marginBottom: '24px',
            }}
-         />
-         {filteredProducts.length > 0 && (
-<div
-             style={{
-               position: 'absolute',
-               top: '105%',
-               left: 0,
-               width: '100%',
-               background: '#020617',
-               border: '1px solid #1e293b',
-               borderRadius: '14px',
-               overflow: 'hidden',
-               zIndex: 20,
-             }}
 >
-             {filteredProducts.map((item) => (
-<div
-                 key={item}
-                 onClick={() => {
-                   setProduct(item)
-                   setFilteredProducts([])
-                 }}
-                 style={{
-                   padding: '14px 16px',
-                   cursor: 'pointer',
-                   borderBottom: '1px solid #0f172a',
-                   color: 'white',
-                 }}
->
-                 {item}
-</div>
-             ))}
-</div>
-         )}
-</div>
-<button
-         onClick={comparePrices}
-         style={{
-           width: '100%',
-           padding: '16px',
-           borderRadius: '16px',
-           border: 'none',
-           background: 'linear-gradient(90deg,#84cc16,#4ade80)',
-           color: '#052e16',
-           fontWeight: '800',
-           fontSize: '16px',
-           cursor: 'pointer',
-           marginBottom: '24px',
-         }}
->
-         Compare Prices
+           Compare Prices
 </button>
-<div>
-         {results.map((item) => (
+<div
+           style={{
+             display: 'flex',
+             flexDirection: 'column',
+             gap: '16px',
+           }}
+>
+           {results.map((item) => (
 <ProductCard
-             key={item.name}
-             item={item}
-             isBest={item.price === lowestPrice}
-             isFastest={item.time === fastestTime}
-             highestPrice={highestPrice}
-           />
-         ))}
+               key={item.name}
+               item={item}
+               isBest={item.price === lowestPrice}
+               isFastest={item.time === fastestTime}
+               highestPrice={highestPrice}
+             />
+           ))}
+</div>
 </div>
 </div>
 </main>
