@@ -4,19 +4,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "/blinkit.svg",
        price: 711,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "/zepto.svg",
        price: 718,
        time: 13,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "/instamart.svg",
        price: 705,
        time: 19,
      },
@@ -28,19 +28,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "/blinkit.svg",
        price: 130,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "/zepto.svg",
        price: 131,
        time: 12,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "/instamart.svg",
        price: 168,
        time: 14,
      },
@@ -52,19 +52,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "/blinkit.svg",
        price: 73,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "/zepto.svg",
        price: 75,
        time: 12,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "/instamart.svg",
        price: 72,
        time: 14,
      },
@@ -76,19 +76,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "/blinkit.svg",
        price: 42,
        time: 10,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "/zepto.svg",
        price: 45,
        time: 11,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "/instamart.svg",
        price: 40,
        time: 15,
      },
