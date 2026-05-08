@@ -4,19 +4,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "🟨",
        price: 711,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "🟪",
        price: 718,
        time: 13,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "🟦",
        price: 705,
        time: 19,
      },
@@ -28,19 +28,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "🟨",
        price: 130,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "🟪",
        price: 131,
        time: 12,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "🟦",
        price: 168,
        time: 14,
      },
@@ -52,19 +52,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "🟨",
        price: 73,
        time: 12,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "🟪",
        price: 75,
        time: 12,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "🟦",
        price: 72,
        time: 14,
      },
@@ -76,19 +76,19 @@ export const products = [
    results: [
      {
        name: "Blinkit",
-       logo: "/blinkit.png",
+       logo: "🟨",
        price: 42,
        time: 10,
      },
      {
        name: "Zepto",
-       logo: "/zepto.png",
+       logo: "🟪",
        price: 45,
        time: 11,
      },
      {
        name: "Instamart",
-       logo: "/instamart.png",
+       logo: "🟦",
        price: 40,
        time: 15,
      },
