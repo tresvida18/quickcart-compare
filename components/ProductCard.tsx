@@ -50,13 +50,16 @@ export default function ProductCard({
 <img
  src={item.logo}
  alt={item.name}
+ width={56}
+ height={56}
  style={{
-   width: "52px",
-   height: "52px",
-   objectFit: "contain",
+   width: "56px",
+   height: "56px",
    borderRadius: "14px",
-   background: "white",
-   padding: "6px",
+   background: "#ffffff",
+   padding: "8px",
+   objectFit: "contain",
+   display: "block",
  }}
 />
 
