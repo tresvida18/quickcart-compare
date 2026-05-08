@@ -47,18 +47,22 @@ export default function ProductCard({
              marginBottom: "6px",
            }}
 >
-<img
- src={item.logo}
- alt={item.name}
- style={{
-   width: "52px",
-   height: "52px",
-   borderRadius: "14px",
-   background: "white",
-   padding: "6px",
-   objectFit: "contain",
- }}
-/>
+<div
+ style={{
+   width: "64px",
+   height: "64px",
+   borderRadius: "18px",
+   display: "flex",
+   alignItems: "center",
+   justifyContent: "center",
+   fontSize: "34px",
+   background: "rgba(255,255,255,0.08)",
+   border: "1px solid rgba(255,255,255,0.12)",
+   backdropFilter: "blur(12px)",
+ }}
+>
+ {item.logo}
+</div>
 
 <div
              style={{
