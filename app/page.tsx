@@ -50,7 +50,7 @@ export default function Home() {
          'radial-gradient(circle at top, #0f172a 0%, #020617 60%)',
        display: 'flex',
        justifyContent: 'center',
-       alignItems: 'center',
+       alignItems: 'flex-start',
        padding: '30px',
        fontFamily: 'Inter, sans-serif',
      }}
@@ -58,7 +58,7 @@ export default function Home() {
 <div
        style={{
          width: '100%',
-         maxWidth: '430px',
+         maxWidth: '1100px',
          background: 'rgba(15,23,42,0.88)',
          border: '1px solid rgba(148,163,184,0.15)',
          backdropFilter: 'blur(18px)',
@@ -167,16 +167,25 @@ export default function Home() {
 >
          Compare Prices
 </button>
-<div>
-         {results.map((item) => (
+<div
+ style={{
+   display: 'grid',
+   gridTemplateColumns:
+     typeof window !== 'undefined' && window.innerWidth > 768
+       ? 'repeat(2, 1fr)'
+       : '1fr',
+   gap: '16px',
+ }}
+>
+ {results.map((item) => (
 <ProductCard
-             key={item.name}
-             item={item}
-             isBest={item.price === lowestPrice}
-             isFastest={item.time === fastestTime}
-             highestPrice={highestPrice}
-           />
-         ))}
+     key={item.name}
+     item={item}
+     isBest={item.price === lowestPrice}
+     isFastest={item.time === fastestTime}
+     highestPrice={highestPrice}
+   />
+ ))}
 </div>
 </div>
 </main>
