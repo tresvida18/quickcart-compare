@@ -48,20 +48,20 @@ export default function ProductCard({
            }}
 >
 <div
- style={{
-   width: "64px",
-   height: "64px",
-   borderRadius: "18px",
-   display: "flex",
-   alignItems: "center",
-   justifyContent: "center",
-   fontSize: "34px",
-   background: "rgba(255,255,255,0.08)",
-   border: "1px solid rgba(255,255,255,0.12)",
-   backdropFilter: "blur(12px)",
- }}
+ style={{
+   width: "64px",
+   height: "64px",
+   borderRadius: "18px",
+   display: "flex",
+   alignItems: "center",
+   justifyContent: "center",
+   fontSize: "34px",
+   background: "rgba(255,255,255,0.08)",
+   border: "1px solid rgba(255,255,255,0.12)",
+   backdropFilter: "blur(12px)",
+ }}
 >
- {item.logo}
+ {item.logo}
 </div>
 
 <div
