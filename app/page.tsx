@@ -1,184 +1,177 @@
-'use client'
-import { useState } from 'react'
-import ProductCard from '@/components/ProductCard'
-import { products } from '@/components/data/products'
-export default function Home() {
- const [product, setProduct] = useState('')
- const [results, setResults] = useState<any[]>([])
- const [filteredProducts, setFilteredProducts] = useState<string[]>([])
- const comparePrices = () => {
-   const found = products.find(
-     (p) => p.name.toLowerCase() === product.toLowerCase()
-   )
-   if (!found) {
-     setResults([])
-     return
-   }
-   setResults(found.results)
-   setFilteredProducts([])
- }
- const handleSearch = (value: string) => {
-   setProduct(value)
-   if (value.trim() === '') {
-     setFilteredProducts([])
-     return
-   }
-   const matches = products
-     .filter((item) =>
-       item.name.toLowerCase().startsWith(value.toLowerCase())
-     )
-     .map((item) => item.name)
-   setFilteredProducts(matches)
- }
- const highestPrice =
-   results.length > 0
-     ? Math.max(...results.map((item) => item.price))
-     : null
- const lowestPrice =
-   results.length > 0
-     ? Math.min(...results.map((item) => item.price))
-     : null
- const fastestTime =
-   results.length > 0
-     ? Math.min(...results.map((item) => item.time))
-     : null
- return (
-<main
-     style={{
-       minHeight: '100vh',
-       background:
-         'radial-gradient(circle at top, #0f172a 0%, #020617 60%)',
-       display: 'flex',
-       justifyContent: 'center',
-       alignItems: 'center',
-       padding: '30px',
-       fontFamily: 'Inter, sans-serif',
-     }}
+type ProductCardProps = {
+ item: any
+ isBest: boolean
+ isFastest: boolean
+ highestPrice: number | null
+}
+
+export default function ProductCard({
+ item,
+ isBest,
+ isFastest,
+ highestPrice,
+}: ProductCardProps) {
+ return (
+<div
+     style={{
+       padding: '22px',
+       borderRadius: '28px',
+       background: 'rgba(10,15,35,0.92)',
+       border: isBest
+         ? '1px solid rgba(74,222,128,0.7)'
+         : isFastest
+         ? '1px solid rgba(56,189,248,0.7)'
+         : '1px solid rgba(255,255,255,0.08)',
+       boxShadow: isBest
+         ? '0 0 30px rgba(74,222,128,0.18)'
+         : isFastest
+         ? '0 0 24px rgba(56,189,248,0.15)'
+         : '0 10px 30px rgba(0,0,0,0.35)',
+       marginBottom: '18px',
+       width: '100%',
+       boxSizing: 'border-box',
+     }}
+>
+     {/* TOP SECTION */}
+<div
+       style={{
+         display: 'flex',
+         justifyContent: 'space-between',
+         alignItems: 'flex-start',
+         gap: '14px',
+         flexWrap: 'wrap',
+       }}
+>
+       {/* LEFT */}
+<div
+         style={{
+           display: 'flex',
+           gap: '14px',
+           alignItems: 'center',
+           flex: 1,
+           minWidth: 0,
+         }}
+>
+         {/* LOGO */}
+<img
+           src={item.logo}
+           alt={item.name}
+           style={{
+             width: '72px',
+             height: '72px',
+             borderRadius: '22px',
+             objectFit: 'cover',
+             flexShrink: 0,
+           }}
+         />
+
+         {/* NAME + TIME */}
+<div
+           style={{
+             minWidth: 0,
+           }}
 >
 <div
-       style={{
-         width: '100%',
-         maxWidth: '430px',
-         background: 'rgba(15,23,42,0.88)',
-         border: '1px solid rgba(148,163,184,0.15)',
-         backdropFilter: 'blur(18px)',
-         borderRadius: '28px',
-         padding: '28px',
-         boxShadow: '0 25px 50px rgba(0,0,0,0.45)',
-       }}
+             style={{
+               fontSize: 'clamp(24px, 4vw, 34px)',
+               fontWeight: 800,
+               color: 'white',
+               lineHeight: 1.1,
+               wordBreak: 'break-word',
+             }}
+>
+             {item.name}
+</div>
+
+<div
+             style={{
+               marginTop: '10px',
+               color: '#cbd5e1',
+               fontSize: 'clamp(14px, 2vw, 16px)',
+               display: 'flex',
+               alignItems: 'center',
+               gap: '6px',
+             }}
+>
+             ⏱ {item.time} mins
+</div>
+</div>
+</div>
+
+       {/* PRICE */}
+<div
+         style={{
+           textAlign: 'right',
+           flexShrink: 0,
+           minWidth: '90px',
+         }}
 >
 <div
-         style={{
-           textAlign: 'center',
-           marginBottom: '24px',
-         }}
+           style={{
+             fontSize: 'clamp(30px, 5vw, 44px)',
+             fontWeight: 900,
+             color: 'white',
+             lineHeight: 1,
+           }}
 >
-<h1
-           style={{
-             fontSize: '42px',
-             lineHeight: '46px',
-             marginBottom: '12px',
-             fontWeight: '800',
-             color: 'white',
-           }}
->
-           ⚡ QuickCart Compare
-</h1>
-<p
-           style={{
-             color: '#94a3b8',
-             fontSize: '15px',
-           }}
->
-           Compare prices instantly across apps
-</p>
+           ₹{item.price}
 </div>
+
+         {isBest && (
 <div
-         style={{
-           position: 'relative',
-           marginBottom: '18px',
-         }}
+             style={{
+               marginTop: '8px',
+               color: '#cbd5e1',
+               fontSize: '13px',
+             }}
 >
-<input
-           type="text"
-           value={product}
-           onChange={(e) => handleSearch(e.target.value)}
-           placeholder="Search groceries..."
-           style={{
-             width: '100%',
-             padding: '16px',
-             borderRadius: '16px',
-             border: '1px solid #1e293b',
-             background: '#020617',
-             color: 'white',
-             fontSize: '15px',
-             outline: 'none',
-             boxSizing: 'border-box',
-           }}
-         />
-         {filteredProducts.length > 0 && (
+             Save ₹{highestPrice! - item.price}
+</div>
+         )}
+</div>
+</div>
+
+     {/* BADGES */}
 <div
-             style={{
-               position: 'absolute',
-               top: '105%',
-               left: 0,
-               width: '100%',
-               background: '#020617',
-               border: '1px solid #1e293b',
-               borderRadius: '14px',
-               overflow: 'hidden',
-               zIndex: 20,
-             }}
+       style={{
+         display: 'flex',
+         gap: '12px',
+         flexWrap: 'wrap',
+         marginTop: '22px',
+       }}
 >
-             {filteredProducts.map((item) => (
+       {isBest && (
 <div
-                 key={item}
-                 onClick={() => {
-                   setProduct(item)
-                   setFilteredProducts([])
-                 }}
-                 style={{
-                   padding: '14px 16px',
-                   cursor: 'pointer',
-                   borderBottom: '1px solid #0f172a',
-                   color: 'white',
-                 }}
+           style={{
+             background: 'rgba(34,197,94,0.15)',
+             color: '#4ade80',
+             padding: '10px 18px',
+             borderRadius: '999px',
+             fontSize: '14px',
+             fontWeight: 700,
+             border: '1px solid rgba(74,222,128,0.2)',
+           }}
 >
-                 {item}
+           🔥 Best Deal
 </div>
-             ))}
-</div>
-         )}
-</div>
-<button
-         onClick={comparePrices}
-         style={{
-           width: '100%',
-           padding: '16px',
-           borderRadius: '16px',
-           border: 'none',
-           background: 'linear-gradient(90deg,#84cc16,#4ade80)',
-           color: '#052e16',
-           fontWeight: '800',
-           fontSize: '16px',
-           cursor: 'pointer',
-           marginBottom: '24px',
-         }}
+       )}
+
+       {isFastest && (
+<div
+           style={{
+             background: 'rgba(56,189,248,0.15)',
+             color: '#38bdf8',
+             padding: '10px 18px',
+             borderRadius: '999px',
+             fontSize: '14px',
+             fontWeight: 700,
+             border: '1px solid rgba(56,189,248,0.2)',
+           }}
 >
-         Compare Prices
-</button>
-<div>
-         {results.map((item) => (
-<ProductCard
-             key={item.name}
-             item={item}
-             isBest={item.price === lowestPrice}
-             isFastest={item.time === fastestTime}
-             highestPrice={highestPrice}
-           />
-         ))}
+           ⚡ Fastest Delivery
+</div>
+       )}
 </div>
 </div>
-</main>
- )
+ )
 }
