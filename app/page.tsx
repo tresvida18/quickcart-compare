@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState } from 'react'
@@ -63,14 +64,14 @@ export default function Home() {
          'radial-gradient(circle at top, #0f172a 0%, #020617 60%)',
        display: 'flex',
        justifyContent: 'center',
-       padding: '24px',
+       padding: '20px',
        fontFamily: 'Inter, sans-serif',
      }}
 >
 <div
        style={{
          width: '100%',
-         maxWidth: '700px',
+         maxWidth: '520px',
        }}
 >
        {/* TOP BOX */}
@@ -78,24 +79,25 @@ export default function Home() {
          style={{
            background: 'rgba(15,23,42,0.82)',
            border: '1px solid rgba(148,163,184,0.12)',
-           borderRadius: '32px',
-           padding: '28px',
+           borderRadius: '28px',
+           padding: '24px',
            backdropFilter: 'blur(18px)',
-           marginBottom: '28px',
-           boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
+           marginBottom: '24px',
+           boxShadow: '0 20px 50px rgba(0,0,0,0.45)',
          }}
 >
+         {/* TITLE */}
 <div
            style={{
              textAlign: 'center',
-             marginBottom: '28px',
+             marginBottom: '24px',
            }}
 >
 <h1
              style={{
-               fontSize: 'clamp(42px, 6vw, 68px)',
+               fontSize: 'clamp(28px, 4vw, 48px)',
                lineHeight: 1,
-               marginBottom: '14px',
+               marginBottom: '10px',
                fontWeight: 900,
                color: 'white',
              }}
@@ -106,7 +108,7 @@ export default function Home() {
 <p
              style={{
                color: '#94a3b8',
-               fontSize: 'clamp(15px, 2vw, 18px)',
+               fontSize: '14px',
              }}
 >
              Compare prices instantly across apps
@@ -117,7 +119,7 @@ export default function Home() {
 <div
            style={{
              position: 'relative',
-             marginBottom: '18px',
+             marginBottom: '16px',
            }}
 >
 <input
@@ -127,12 +129,12 @@ export default function Home() {
              placeholder="Search groceries..."
              style={{
                width: '100%',
-               padding: '18px',
-               borderRadius: '18px',
+               padding: '16px',
+               borderRadius: '16px',
                border: '1px solid #1e293b',
                background: '#020617',
                color: 'white',
-               fontSize: '16px',
+               fontSize: '15px',
                outline: 'none',
                boxSizing: 'border-box',
              }}
@@ -178,13 +180,13 @@ export default function Home() {
            onClick={comparePrices}
            style={{
              width: '100%',
-             padding: '18px',
-             borderRadius: '18px',
+             padding: '16px',
+             borderRadius: '16px',
              border: 'none',
              background: 'linear-gradient(90deg,#84cc16,#4ade80)',
              color: '#052e16',
              fontWeight: 900,
-             fontSize: '18px',
+             fontSize: '16px',
              cursor: 'pointer',
            }}
 >
@@ -208,3 +210,4 @@ export default function Home() {
 </main>
  )
 }
+
