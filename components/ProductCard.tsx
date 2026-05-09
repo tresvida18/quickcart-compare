@@ -30,7 +30,6 @@ export default function ProductCard({
          : '1px solid #1e293b',
 
        boxSizing: 'border-box',
-
        overflow: 'hidden'
      }}
 >
@@ -39,43 +38,60 @@ export default function ProductCard({
          display: 'flex',
          justifyContent: 'space-between',
          alignItems: 'flex-start',
-         width: '100%',
-         gap: '20px'
+         gap: '16px',
+         width: '100%'
        }}
 >
        {/* LEFT SIDE */}
 <div
          style={{
+           display: 'flex',
+           gap: '14px',
+           alignItems: 'center',
            flex: 1,
            minWidth: 0
          }}
 >
+<img
+           src={item.logo}
+           alt={item.name}
+           style={{
+             width: '52px',
+             height: '52px',
+             borderRadius: '14px',
+             objectFit: 'cover',
+             flexShrink: 0
+           }}
+         />
+
 <div
            style={{
-             fontSize: '26px',
-             fontWeight: 700,
-             color: 'white',
-
-             whiteSpace: 'nowrap',
-
-             overflow: 'hidden',
-
-             textOverflow: 'ellipsis',
-
-             wordBreak: 'normal'
+             minWidth: 0
            }}
 >
-           {item.name}
+<div
+             style={{
+               fontSize: '24px',
+               fontWeight: 700,
+               color: 'white',
+
+               whiteSpace: 'nowrap',
+               overflow: 'hidden',
+               textOverflow: 'ellipsis'
+             }}
+>
+             {item.name}
 </div>
 
 <div
-           style={{
-             marginTop: '8px',
-             fontSize: '14px',
-             color: '#cbd5e1'
-           }}
+             style={{
+               marginTop: '6px',
+               fontSize: '14px',
+               color: '#cbd5e1'
+             }}
 >
-           ⏱ {item.time} mins
+             ⏱ {item.time} mins
+</div>
 </div>
 </div>
 
@@ -127,11 +143,9 @@ export default function ProductCard({
              color: '#4ade80',
 
              padding: '8px 14px',
-
              borderRadius: '999px',
 
              fontSize: '13px',
-
              fontWeight: 'bold'
            }}
 >
@@ -146,11 +160,9 @@ export default function ProductCard({
              color: '#38bdf8',
 
              padding: '8px 14px',
-
              borderRadius: '999px',
 
              fontSize: '13px',
-
              fontWeight: 'bold'
            }}
 >
