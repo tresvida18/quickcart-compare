@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -61,138 +60,142 @@ export default function Home() {
      style={{
        minHeight: '100vh',
        background:
-         'radial-gradient(circle at top, #0f172a 0%, #020617 60%)',
+         'radial-gradient(circle at top, #0f172a 0%, #020617 65%)',
        display: 'flex',
        justifyContent: 'center',
+       alignItems: 'flex-start',
        padding: '20px',
        fontFamily: 'Inter, sans-serif',
+       boxSizing: 'border-box',
      }}
 >
 <div
        style={{
          width: '100%',
-         maxWidth: '520px',
+         maxWidth: '420px',
+         background: 'rgba(15,23,42,0.9)',
+         border: '1px solid rgba(148,163,184,0.12)',
+         backdropFilter: 'blur(16px)',
+         borderRadius: '24px',
+         padding: '20px',
+         boxSizing: 'border-box',
+         boxShadow: '0 20px 40px rgba(0,0,0,0.35)',
        }}
 >
-       {/* TOP BOX */}
+       {/* HEADER */}
 <div
          style={{
-           background: 'rgba(15,23,42,0.82)',
-           border: '1px solid rgba(148,163,184,0.12)',
-           borderRadius: '28px',
-           padding: '24px',
-           backdropFilter: 'blur(18px)',
-           marginBottom: '24px',
-           boxShadow: '0 20px 50px rgba(0,0,0,0.45)',
+           textAlign: 'center',
+           marginBottom: '22px',
          }}
 >
-         {/* TITLE */}
-<div
+<h1
            style={{
-             textAlign: 'center',
-             marginBottom: '24px',
+             fontSize: '36px',
+             lineHeight: '38px',
+             marginBottom: '10px',
+             fontWeight: 900,
+             color: 'white',
+             letterSpacing: '-1px',
            }}
 >
-<h1
-             style={{
-               fontSize: 'clamp(28px, 4vw, 48px)',
-               lineHeight: 1,
-               marginBottom: '10px',
-               fontWeight: 900,
-               color: 'white',
-             }}
->
-             ⚡ QuickCart Compare
+           ⚡ QuickCart
+<br />
+           Compare
 </h1>
 
 <p
-             style={{
-               color: '#94a3b8',
-               fontSize: '14px',
-             }}
+           style={{
+             color: '#94a3b8',
+             fontSize: '14px',
+             margin: 0,
+           }}
 >
-             Compare prices instantly across apps
+           Compare prices instantly across apps
 </p>
 </div>
 
-         {/* SEARCH */}
+       {/* SEARCH */}
 <div
-           style={{
-             position: 'relative',
-             marginBottom: '16px',
-           }}
+         style={{
+           position: 'relative',
+           marginBottom: '16px',
+         }}
 >
 <input
-             type="text"
-             value={product}
-             onChange={(e) => handleSearch(e.target.value)}
-             placeholder="Search groceries..."
-             style={{
-               width: '100%',
-               padding: '16px',
-               borderRadius: '16px',
-               border: '1px solid #1e293b',
-               background: '#020617',
-               color: 'white',
-               fontSize: '15px',
-               outline: 'none',
-               boxSizing: 'border-box',
-             }}
-           />
-
-           {filteredProducts.length > 0 && (
-<div
-               style={{
-                 position: 'absolute',
-                 top: '105%',
-                 left: 0,
-                 width: '100%',
-                 background: '#020617',
-                 border: '1px solid #1e293b',
-                 borderRadius: '14px',
-                 overflow: 'hidden',
-                 zIndex: 20,
-               }}
->
-               {filteredProducts.map((item) => (
-<div
-                   key={item}
-                   onClick={() => {
-                     setProduct(item)
-                     setFilteredProducts([])
-                   }}
-                   style={{
-                     padding: '14px 16px',
-                     cursor: 'pointer',
-                     borderBottom: '1px solid #0f172a',
-                     color: 'white',
-                   }}
->
-                   {item}
-</div>
-               ))}
-</div>
-           )}
-</div>
-
-         {/* BUTTON */}
-<button
-           onClick={comparePrices}
+           type="text"
+           value={product}
+           onChange={(e) => handleSearch(e.target.value)}
+           placeholder="Search groceries..."
            style={{
              width: '100%',
-             padding: '16px',
-             borderRadius: '16px',
-             border: 'none',
-             background: 'linear-gradient(90deg,#84cc16,#4ade80)',
-             color: '#052e16',
-             fontWeight: 900,
-             fontSize: '16px',
-             cursor: 'pointer',
+             padding: '15px',
+             borderRadius: '14px',
+             border: '1px solid #1e293b',
+             background: '#020617',
+             color: 'white',
+             fontSize: '15px',
+             outline: 'none',
+             boxSizing: 'border-box',
            }}
+         />
+
+         {filteredProducts.length > 0 && (
+<div
+             style={{
+               position: 'absolute',
+               top: '105%',
+               left: 0,
+               width: '100%',
+               background: '#020617',
+               border: '1px solid #1e293b',
+               borderRadius: '14px',
+               overflow: 'hidden',
+               zIndex: 20,
+               boxSizing: 'border-box',
+             }}
 >
-           Compare Prices
-</button>
+             {filteredProducts.map((item) => (
+<div
+                 key={item}
+                 onClick={() => {
+                   setProduct(item)
+                   setFilteredProducts([])
+                 }}
+                 style={{
+                   padding: '14px 16px',
+                   cursor: 'pointer',
+                   borderBottom: '1px solid #0f172a',
+                   color: 'white',
+                   fontSize: '14px',
+                 }}
+>
+                 {item}
 </div>
+             ))}
+</div>
+         )}
+</div>
+
+       {/* BUTTON */}
+<button
+         onClick={comparePrices}
+         style={{
+           width: '100%',
+           padding: '15px',
+           borderRadius: '14px',
+           border: 'none',
+           background: 'linear-gradient(90deg,#84cc16,#4ade80)',
+           color: '#052e16',
+           fontWeight: 800,
+           fontSize: '16px',
+           cursor: 'pointer',
+           marginBottom: '20px',
+           boxSizing: 'border-box',
+         }}
+>
+         Compare Prices
+</button>
 
        {/* RESULTS */}
 <div>
@@ -210,4 +213,3 @@ export default function Home() {
 </main>
  )
 }
-
