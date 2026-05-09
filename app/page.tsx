@@ -63,15 +63,16 @@ export default function Home() {
          'radial-gradient(circle at top, #0f172a 0%, #020617 70%)',
        display: 'flex',
        justifyContent: 'center',
-       padding: '24px 16px',
+       padding: '20px',
        boxSizing: 'border-box',
-       fontFamily: 'Inter, sans-serif',
+       fontFamily: 'Arial, sans-serif',
      }}
 >
 <div
        style={{
          width: '100%',
-         maxWidth: '520px',
+         maxWidth: '700px',
+         minWidth: '320px',
        }}
 >
        {/* HEADER */}
@@ -83,21 +84,20 @@ export default function Home() {
 >
 <h1
            style={{
-             fontSize: '42px',
-             lineHeight: 1,
              color: 'white',
+             fontSize: '36px',
              fontWeight: 900,
-             marginBottom: '10px',
+             margin: 0,
+             lineHeight: 1.1,
            }}
 >
-           ⚡ QuickCart
-<br />
-           Compare
+           ⚡ QuickCart Compare
 </h1>
 
 <p
            style={{
              color: '#94a3b8',
+             marginTop: '10px',
              fontSize: '14px',
            }}
 >
@@ -109,7 +109,7 @@ export default function Home() {
 <div
          style={{
            position: 'relative',
-           marginBottom: '14px',
+           marginBottom: '16px',
          }}
 >
 <input
@@ -125,8 +125,8 @@ export default function Home() {
              background: '#020617',
              color: 'white',
              fontSize: '16px',
-             outline: 'none',
              boxSizing: 'border-box',
+             outline: 'none',
            }}
          />
 
@@ -135,13 +135,12 @@ export default function Home() {
              style={{
                position: 'absolute',
                top: '105%',
-               left: 0,
                width: '100%',
                background: '#020617',
                border: '1px solid #1e293b',
                borderRadius: '14px',
                overflow: 'hidden',
-               zIndex: 50,
+               zIndex: 10,
              }}
 >
              {filteredProducts.map((item) => (
@@ -152,7 +151,7 @@ export default function Home() {
                    setFilteredProducts([])
                  }}
                  style={{
-                   padding: '14px 16px',
+                   padding: '14px',
                    color: 'white',
                    cursor: 'pointer',
                    borderBottom: '1px solid #0f172a',
@@ -178,14 +177,18 @@ export default function Home() {
            fontSize: '16px',
            fontWeight: 800,
            cursor: 'pointer',
-           marginBottom: '26px',
+           marginBottom: '24px',
          }}
 >
          Compare Prices
 </button>
 
        {/* RESULTS */}
-<div>
+<div
+         style={{
+           width: '100%',
+         }}
+>
          {results.map((item) => (
 <ProductCard
              key={item.name}
