@@ -16,24 +16,22 @@ export default function ProductCard({
      style={{
        width: '100%',
        boxSizing: 'border-box',
-       padding: '14px',
-       marginBottom: '14px',
-       borderRadius: '18px',
-       background: '#081323',
+       padding: '16px',
+       marginBottom: '16px',
+       borderRadius: '20px',
+       background: '#081223',
        border: isBest
          ? '1px solid rgba(74,222,128,0.4)'
          : isFastest
          ? '1px solid rgba(56,189,248,0.4)'
          : '1px solid rgba(255,255,255,0.08)',
-       boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
      }}
 >
-     {/* TOP SECTION */}
 <div
        style={{
          display: 'flex',
-         alignItems: 'center',
          justifyContent: 'space-between',
+         alignItems: 'center',
          gap: '12px',
        }}
 >
@@ -43,29 +41,34 @@ export default function ProductCard({
            display: 'flex',
            alignItems: 'center',
            gap: '12px',
-           flex: 1,
            minWidth: 0,
+           flex: 1,
          }}
 >
 <img
            src={item.logo}
            alt={item.name}
            style={{
-             width: '52px',
-             height: '52px',
+             width: '54px',
+             height: '54px',
              borderRadius: '14px',
              objectFit: 'cover',
              flexShrink: 0,
            }}
          />
 
-<div style={{ minWidth: 0 }}>
+<div
+           style={{
+             minWidth: 0,
+           }}
+>
 <div
              style={{
                color: 'white',
                fontWeight: 800,
-               fontSize: '22px',
-               lineHeight: 1.1,
+               fontSize: '20px',
+               lineHeight: '24px',
+               wordBreak: 'break-word',
              }}
 >
              {item.name}
@@ -73,7 +76,7 @@ export default function ProductCard({
 
 <div
              style={{
-               color: '#cbd5e1',
+               color: '#94a3b8',
                fontSize: '13px',
                marginTop: '4px',
              }}
@@ -86,15 +89,15 @@ export default function ProductCard({
        {/* RIGHT */}
 <div
          style={{
-           textAlign: 'right',
            flexShrink: 0,
+           textAlign: 'right',
          }}
 >
 <div
            style={{
              color: 'white',
              fontWeight: 900,
-             fontSize: '34px',
+             fontSize: '28px',
              lineHeight: 1,
            }}
 >
@@ -105,7 +108,7 @@ export default function ProductCard({
 <div
              style={{
                color: '#94a3b8',
-               fontSize: '12px',
+               fontSize: '11px',
                marginTop: '4px',
              }}
 >
@@ -119,8 +122,8 @@ export default function ProductCard({
 <div
        style={{
          display: 'flex',
-         flexWrap: 'wrap',
          gap: '8px',
+         flexWrap: 'wrap',
          marginTop: '14px',
        }}
 >
@@ -131,9 +134,8 @@ export default function ProductCard({
              color: '#4ade80',
              padding: '7px 12px',
              borderRadius: '999px',
-             fontSize: '12px',
+             fontSize: '11px',
              fontWeight: 700,
-             border: '1px solid rgba(74,222,128,0.15)',
            }}
 >
            🔥 Best Deal
@@ -147,9 +149,8 @@ export default function ProductCard({
              color: '#38bdf8',
              padding: '7px 12px',
              borderRadius: '999px',
-             fontSize: '12px',
+             fontSize: '11px',
              fontWeight: 700,
-             border: '1px solid rgba(56,189,248,0.15)',
            }}
 >
            ⚡ Fastest Delivery
