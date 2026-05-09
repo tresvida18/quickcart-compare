@@ -9,82 +9,71 @@ export default function ProductCard({
  item,
  isBest,
  isFastest,
- highestPrice,
+ highestPrice
 }: ProductCardProps) {
  return (
 <div
      style={{
-       width: '100%',
-       background: '#081223',
+       padding: '18px',
+       marginBottom: '14px',
        borderRadius: '18px',
-       padding: '16px',
-       marginBottom: '16px',
+       background: isBest
+         ? 'linear-gradient(135deg,#064e3b,#022c22)'
+         : '#020617',
        border: isBest
-         ? '1px solid rgba(74,222,128,0.35)'
-         : '1px solid rgba(255,255,255,0.08)',
+         ? '1px solid #22c55e'
+         : isFastest
+         ? '1px solid #38bdf8'
+         : '1px solid #1e293b',
+       boxShadow: isBest
+         ? '0 0 18px rgba(34,197,94,0.25)'
+         : 'none',
+
+       width: '100%',
        boxSizing: 'border-box',
-       overflow: 'hidden',
+       overflow: 'hidden'
      }}
 >
 <div
        style={{
          display: 'flex',
-         alignItems: 'center',
          justifyContent: 'space-between',
-         gap: '10px',
+         alignItems: 'flex-start',
+         gap: '14px',
+
          width: '100%',
+         minWidth: 0
        }}
 >
        {/* LEFT */}
 <div
          style={{
-           display: 'flex',
-           alignItems: 'center',
-           gap: '10px',
            flex: 1,
-           minWidth: 0,
+           minWidth: 0
          }}
 >
-<img
-           src={item.logo}
-           alt={item.name}
+<div
            style={{
-             width: '44px',
-             height: '44px',
-             borderRadius: '12px',
-             objectFit: 'cover',
-             flexShrink: 0,
-           }}
-         />
+             fontSize: '22px',
+             fontWeight: '700',
+             marginBottom: '6px',
+             color: 'white',
 
-<div
-           style={{
-             minWidth: 0,
+             whiteSpace: 'nowrap',
+             overflow: 'hidden',
+             textOverflow: 'ellipsis'
            }}
 >
-<div
-             style={{
-               color: 'white',
-               fontSize: '18px',
-               fontWeight: 700,
-               lineHeight: 1.1,
-               whiteSpace: 'nowrap',
-               overflow: 'hidden',
-               textOverflow: 'ellipsis',
-             }}
->
-             {item.name}
+           {item.logo} {item.name}
 </div>
 
 <div
-             style={{
-               color: '#94a3b8',
-               fontSize: '11px',
-               marginTop: '4px',
-             }}
+           style={{
+             fontSize: '13px',
+             color: '#cbd5e1'
+           }}
 >
-             ⏱ {item.time} mins
-</div>
+           ⏱ {item.time} mins
 </div>
 </div>
 
@@ -92,54 +81,52 @@ export default function ProductCard({
 <div
          style={{
            textAlign: 'right',
-           flexShrink: 0,
-           minWidth: '70px',
+           flexShrink: 0
          }}
 >
 <div
            style={{
+             fontSize: '30px',
+             fontWeight: 'bold',
              color: 'white',
-             fontSize: '24px',
-             fontWeight: 800,
-             lineHeight: 1,
-             whiteSpace: 'nowrap',
+             lineHeight: 1
            }}
 >
            ₹{item.price}
 </div>
 
-         {isBest && highestPrice && (
+         {!isBest && (
 <div
              style={{
+               fontSize: '12px',
                color: '#94a3b8',
-               fontSize: '10px',
-               marginTop: '4px',
+               marginTop: '6px'
              }}
 >
-             Save ₹{highestPrice - item.price}
+             Save ₹{highestPrice! - item.price}
 </div>
          )}
 </div>
 </div>
 
-     {/* BADGES */}
+     {/* TAGS */}
 <div
        style={{
          display: 'flex',
-         flexWrap: 'wrap',
-         gap: '8px',
+         gap: '10px',
          marginTop: '14px',
+         flexWrap: 'wrap'
        }}
 >
        {isBest && (
 <div
            style={{
-             background: 'rgba(34,197,94,0.12)',
+             background: 'rgba(34,197,94,0.15)',
              color: '#4ade80',
-             padding: '6px 12px',
+             padding: '6px 10px',
              borderRadius: '999px',
-             fontSize: '11px',
-             fontWeight: 600,
+             fontSize: '12px',
+             fontWeight: 'bold'
            }}
 >
            🔥 Best Deal
@@ -149,12 +136,12 @@ export default function ProductCard({
        {isFastest && (
 <div
            style={{
-             background: 'rgba(56,189,248,0.12)',
+             background: 'rgba(56,189,248,0.15)',
              color: '#38bdf8',
-             padding: '6px 12px',
+             padding: '6px 10px',
              borderRadius: '999px',
-             fontSize: '11px',
-             fontWeight: 600,
+             fontSize: '12px',
+             fontWeight: 'bold'
            }}
 >
            ⚡ Fastest Delivery
