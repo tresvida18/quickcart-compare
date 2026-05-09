@@ -15,39 +15,42 @@ export default function ProductCard({
 <div
      style={{
        width: '100%',
+       boxSizing: 'border-box',
+
        padding: '20px',
        marginBottom: '16px',
-       borderRadius: '20px',
+
+       borderRadius: '22px',
 
        background: isBest
          ? 'linear-gradient(135deg,#064e3b,#022c22)'
          : '#020617',
 
        border: isBest
-         ? '1px solid #22c55e'
+         ? '2px solid #22c55e'
          : isFastest
-         ? '1px solid #38bdf8'
+         ? '2px solid #38bdf8'
          : '1px solid #1e293b',
 
-       boxSizing: 'border-box',
        overflow: 'hidden'
      }}
 >
+     {/* TOP ROW */}
 <div
        style={{
          display: 'flex',
          justifyContent: 'space-between',
-         alignItems: 'flex-start',
+         alignItems: 'center',
          gap: '16px',
          width: '100%'
        }}
 >
-       {/* LEFT SIDE */}
+       {/* LEFT */}
 <div
          style={{
            display: 'flex',
-           gap: '14px',
            alignItems: 'center',
+           gap: '14px',
            flex: 1,
            minWidth: 0
          }}
@@ -56,10 +59,11 @@ export default function ProductCard({
            src={item.logo}
            alt={item.name}
            style={{
-             width: '52px',
-             height: '52px',
+             width: '54px',
+             height: '54px',
              borderRadius: '14px',
-             objectFit: 'cover',
+             objectFit: 'contain',
+             background: 'white',
              flexShrink: 0
            }}
          />
@@ -85,9 +89,9 @@ export default function ProductCard({
 
 <div
              style={{
-               marginTop: '6px',
                fontSize: '14px',
-               color: '#cbd5e1'
+               color: '#cbd5e1',
+               marginTop: '4px'
              }}
 >
              ⏱ {item.time} mins
@@ -95,7 +99,7 @@ export default function ProductCard({
 </div>
 </div>
 
-       {/* RIGHT SIDE */}
+       {/* RIGHT */}
 <div
          style={{
            textAlign: 'right',
@@ -116,9 +120,9 @@ export default function ProductCard({
          {!isBest && (
 <div
              style={{
-               marginTop: '6px',
                fontSize: '13px',
-               color: '#94a3b8'
+               color: '#94a3b8',
+               marginTop: '6px'
              }}
 >
              Save ₹{highestPrice! - item.price}
@@ -127,7 +131,7 @@ export default function ProductCard({
 </div>
 </div>
 
-     {/* TAGS */}
+     {/* BADGES */}
 <div
        style={{
          display: 'flex',
@@ -141,12 +145,10 @@ export default function ProductCard({
            style={{
              background: 'rgba(34,197,94,0.15)',
              color: '#4ade80',
-
              padding: '8px 14px',
              borderRadius: '999px',
-
              fontSize: '13px',
-             fontWeight: 'bold'
+             fontWeight: 700
            }}
 >
            🔥 Best Deal
@@ -158,12 +160,10 @@ export default function ProductCard({
            style={{
              background: 'rgba(56,189,248,0.15)',
              color: '#38bdf8',
-
              padding: '8px 14px',
              borderRadius: '999px',
-
              fontSize: '13px',
-             fontWeight: 'bold'
+             fontWeight: 700
            }}
 >
            ⚡ Fastest Delivery
