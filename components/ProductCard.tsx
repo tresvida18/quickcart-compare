@@ -16,34 +16,33 @@ export default function ProductCard({
      style={{
        width: '100%',
        boxSizing: 'border-box',
-       padding: '18px',
-       marginBottom: '18px',
-       borderRadius: '24px',
-       background: 'rgba(8,15,35,0.92)',
+       padding: '14px',
+       marginBottom: '14px',
+       borderRadius: '18px',
+       background: '#081323',
        border: isBest
-         ? '1px solid rgba(74,222,128,0.45)'
+         ? '1px solid rgba(74,222,128,0.4)'
          : isFastest
-         ? '1px solid rgba(56,189,248,0.45)'
+         ? '1px solid rgba(56,189,248,0.4)'
          : '1px solid rgba(255,255,255,0.08)',
-       boxShadow: isBest
-         ? '0 0 24px rgba(74,222,128,0.12)'
-         : '0 10px 28px rgba(0,0,0,0.35)',
+       boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
      }}
 >
+     {/* TOP SECTION */}
 <div
        style={{
          display: 'flex',
-         justifyContent: 'space-between',
          alignItems: 'center',
-         gap: '14px',
+         justifyContent: 'space-between',
+         gap: '12px',
        }}
 >
-       {/* LEFT SIDE */}
+       {/* LEFT */}
 <div
          style={{
            display: 'flex',
            alignItems: 'center',
-           gap: '14px',
+           gap: '12px',
            flex: 1,
            minWidth: 0,
          }}
@@ -52,9 +51,9 @@ export default function ProductCard({
            src={item.logo}
            alt={item.name}
            style={{
-             width: '58px',
-             height: '58px',
-             borderRadius: '18px',
+             width: '52px',
+             height: '52px',
+             borderRadius: '14px',
              objectFit: 'cover',
              flexShrink: 0,
            }}
@@ -63,9 +62,9 @@ export default function ProductCard({
 <div style={{ minWidth: 0 }}>
 <div
              style={{
-               fontSize: 'clamp(18px, 2vw, 28px)',
-               fontWeight: 800,
                color: 'white',
+               fontWeight: 800,
+               fontSize: '22px',
                lineHeight: 1.1,
              }}
 >
@@ -74,9 +73,9 @@ export default function ProductCard({
 
 <div
              style={{
-               marginTop: '6px',
                color: '#cbd5e1',
-               fontSize: '14px',
+               fontSize: '13px',
+               marginTop: '4px',
              }}
 >
              ⏱ {item.time} mins
@@ -84,7 +83,7 @@ export default function ProductCard({
 </div>
 </div>
 
-       {/* PRICE */}
+       {/* RIGHT */}
 <div
          style={{
            textAlign: 'right',
@@ -93,9 +92,9 @@ export default function ProductCard({
 >
 <div
            style={{
-             fontSize: 'clamp(24px, 3vw, 38px)',
-             fontWeight: 900,
              color: 'white',
+             fontWeight: 900,
+             fontSize: '34px',
              lineHeight: 1,
            }}
 >
@@ -105,9 +104,9 @@ export default function ProductCard({
          {isBest && (
 <div
              style={{
-               marginTop: '6px',
-               fontSize: '12px',
                color: '#94a3b8',
+               fontSize: '12px',
+               marginTop: '4px',
              }}
 >
              Save ₹{highestPrice! - item.price}
@@ -120,9 +119,9 @@ export default function ProductCard({
 <div
        style={{
          display: 'flex',
-         gap: '10px',
          flexWrap: 'wrap',
-         marginTop: '18px',
+         gap: '8px',
+         marginTop: '14px',
        }}
 >
        {isBest && (
@@ -130,11 +129,11 @@ export default function ProductCard({
            style={{
              background: 'rgba(34,197,94,0.12)',
              color: '#4ade80',
-             padding: '8px 14px',
+             padding: '7px 12px',
              borderRadius: '999px',
-             fontSize: '13px',
+             fontSize: '12px',
              fontWeight: 700,
-             border: '1px solid rgba(74,222,128,0.18)',
+             border: '1px solid rgba(74,222,128,0.15)',
            }}
 >
            🔥 Best Deal
@@ -146,11 +145,11 @@ export default function ProductCard({
            style={{
              background: 'rgba(56,189,248,0.12)',
              color: '#38bdf8',
-             padding: '8px 14px',
+             padding: '7px 12px',
              borderRadius: '999px',
-             fontSize: '13px',
+             fontSize: '12px',
              fontWeight: 700,
-             border: '1px solid rgba(56,189,248,0.18)',
+             border: '1px solid rgba(56,189,248,0.15)',
            }}
 >
            ⚡ Fastest Delivery
