@@ -16,9 +16,9 @@ export default function ProductCard({
      style={{
        width: '100%',
        boxSizing: 'border-box',
-       padding: '24px',
-       marginBottom: '22px',
-       borderRadius: '30px',
+       padding: '18px',
+       marginBottom: '18px',
+       borderRadius: '24px',
        background: 'rgba(8,15,35,0.92)',
        border: isBest
          ? '1px solid rgba(74,222,128,0.45)'
@@ -26,8 +26,8 @@ export default function ProductCard({
          ? '1px solid rgba(56,189,248,0.45)'
          : '1px solid rgba(255,255,255,0.08)',
        boxShadow: isBest
-         ? '0 0 40px rgba(74,222,128,0.15)'
-         : '0 12px 35px rgba(0,0,0,0.35)',
+         ? '0 0 24px rgba(74,222,128,0.12)'
+         : '0 10px 28px rgba(0,0,0,0.35)',
      }}
 >
 <div
@@ -35,39 +35,35 @@ export default function ProductCard({
          display: 'flex',
          justifyContent: 'space-between',
          alignItems: 'center',
-         gap: '18px',
+         gap: '14px',
        }}
 >
-       {/* LEFT */}
+       {/* LEFT SIDE */}
 <div
          style={{
            display: 'flex',
            alignItems: 'center',
-           gap: '18px',
-           minWidth: 0,
+           gap: '14px',
            flex: 1,
+           minWidth: 0,
          }}
 >
 <img
            src={item.logo}
            alt={item.name}
            style={{
-             width: '80px',
-             height: '80px',
-             borderRadius: '24px',
+             width: '58px',
+             height: '58px',
+             borderRadius: '18px',
              objectFit: 'cover',
              flexShrink: 0,
            }}
          />
 
-<div
-           style={{
-             minWidth: 0,
-           }}
->
+<div style={{ minWidth: 0 }}>
 <div
              style={{
-               fontSize: 'clamp(24px, 4vw, 38px)',
+               fontSize: 'clamp(18px, 2vw, 28px)',
                fontWeight: 800,
                color: 'white',
                lineHeight: 1.1,
@@ -78,9 +74,9 @@ export default function ProductCard({
 
 <div
              style={{
-               marginTop: '10px',
+               marginTop: '6px',
                color: '#cbd5e1',
-               fontSize: '16px',
+               fontSize: '14px',
              }}
 >
              ⏱ {item.time} mins
@@ -97,7 +93,7 @@ export default function ProductCard({
 >
 <div
            style={{
-             fontSize: 'clamp(34px, 5vw, 54px)',
+             fontSize: 'clamp(24px, 3vw, 38px)',
              fontWeight: 900,
              color: 'white',
              lineHeight: 1,
@@ -109,8 +105,8 @@ export default function ProductCard({
          {isBest && (
 <div
              style={{
-               marginTop: '8px',
-               fontSize: '14px',
+               marginTop: '6px',
+               fontSize: '12px',
                color: '#94a3b8',
              }}
 >
@@ -124,9 +120,9 @@ export default function ProductCard({
 <div
        style={{
          display: 'flex',
-         gap: '12px',
+         gap: '10px',
          flexWrap: 'wrap',
-         marginTop: '24px',
+         marginTop: '18px',
        }}
 >
        {isBest && (
@@ -134,9 +130,9 @@ export default function ProductCard({
            style={{
              background: 'rgba(34,197,94,0.12)',
              color: '#4ade80',
-             padding: '10px 18px',
+             padding: '8px 14px',
              borderRadius: '999px',
-             fontSize: '14px',
+             fontSize: '13px',
              fontWeight: 700,
              border: '1px solid rgba(74,222,128,0.18)',
            }}
@@ -150,9 +146,9 @@ export default function ProductCard({
            style={{
              background: 'rgba(56,189,248,0.12)',
              color: '#38bdf8',
-             padding: '10px 18px',
+             padding: '8px 14px',
              borderRadius: '999px',
-             fontSize: '14px',
+             fontSize: '13px',
              fontWeight: 700,
              border: '1px solid rgba(56,189,248,0.18)',
            }}
