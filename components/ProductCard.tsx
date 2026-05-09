@@ -1,4 +1,4 @@
-type ProductCardProps = {
+type Props = {
  item: any
  isBest: boolean
  isFastest: boolean
@@ -9,146 +9,128 @@ export default function ProductCard({
  item,
  isBest,
  isFastest,
- highestPrice
-}: ProductCardProps) {
+ highestPrice,
+}: Props) {
+ const savings =
+   highestPrice && highestPrice > item.price
+     ? highestPrice - item.price
+     : 0
+
  return (
 <div
      style={{
-       width: '100%',
-       boxSizing: 'border-box',
-
-       padding: '20px',
-       marginBottom: '16px',
-
-       borderRadius: '22px',
-
        background: isBest
-         ? 'linear-gradient(135deg,#064e3b,#022c22)'
+         ? 'linear-gradient(135deg,#064e3b,#052e16)'
          : '#020617',
-
-       border: isBest
-         ? '2px solid #22c55e'
-         : isFastest
-         ? '2px solid #38bdf8'
-         : '1px solid #1e293b',
-
-       overflow: 'hidden'
+       border: `2px solid ${
+         isBest ? '#22c55e' : '#38bdf8'
+       }`,
+       borderRadius: '28px',
+       padding: '28px',
+       marginBottom: '22px',
+       boxShadow: '0 0 25px rgba(56,189,248,0.15)',
      }}
 >
-     {/* TOP ROW */}
 <div
        style={{
          display: 'flex',
          justifyContent: 'space-between',
-         alignItems: 'center',
-         gap: '16px',
-         width: '100%'
+         alignItems: 'flex-start',
+         gap: '20px',
        }}
 >
-       {/* LEFT */}
+       {/* LEFT SIDE */}
 <div
          style={{
            display: 'flex',
+           flexDirection: 'column',
            alignItems: 'center',
-           gap: '14px',
            flex: 1,
-           minWidth: 0
          }}
 >
 <img
            src={item.logo}
            alt={item.name}
            style={{
-             width: '54px',
-             height: '54px',
-             borderRadius: '14px',
+             width: '90px',
+             height: '90px',
              objectFit: 'contain',
-             background: 'white',
-             flexShrink: 0
+             borderRadius: '22px',
+             marginBottom: '14px',
            }}
          />
 
-<div
+<h2
            style={{
-             minWidth: 0
+             color: 'white',
+             fontSize: '28px',
+             fontWeight: '800',
+             marginBottom: '10px',
+             textAlign: 'center',
            }}
 >
-<div
-             style={{
-               fontSize: '24px',
-               fontWeight: 700,
-               color: 'white',
-
-               whiteSpace: 'nowrap',
-               overflow: 'hidden',
-               textOverflow: 'ellipsis'
-             }}
->
-             {item.name}
-</div>
+           {item.name}
+</h2>
 
 <div
-             style={{
-               fontSize: '14px',
-               color: '#cbd5e1',
-               marginTop: '4px'
-             }}
+           style={{
+             color: '#cbd5e1',
+             fontSize: '22px',
+             textAlign: 'center',
+             lineHeight: '32px',
+           }}
 >
-             ⏱ {item.time} mins
-</div>
+           ⏱️ {item.time} mins
 </div>
 </div>
 
-       {/* RIGHT */}
+       {/* RIGHT SIDE */}
 <div
          style={{
            textAlign: 'right',
-           flexShrink: 0
+           minWidth: '130px',
          }}
 >
 <div
            style={{
-             fontSize: '34px',
-             fontWeight: 800,
              color: 'white',
-             lineHeight: 1
+             fontSize: '54px',
+             fontWeight: '900',
            }}
 >
            ₹{item.price}
 </div>
 
-         {!isBest && (
 <div
-             style={{
-               fontSize: '13px',
-               color: '#94a3b8',
-               marginTop: '6px'
-             }}
+           style={{
+             color: '#cbd5e1',
+             marginTop: '8px',
+             fontSize: '20px',
+           }}
 >
-             Save ₹{highestPrice! - item.price}
+           Save ₹{savings}
 </div>
-         )}
 </div>
 </div>
 
-     {/* BADGES */}
+     {/* TAGS */}
 <div
        style={{
          display: 'flex',
-         gap: '10px',
-         marginTop: '18px',
-         flexWrap: 'wrap'
+         gap: '14px',
+         flexWrap: 'wrap',
+         marginTop: '28px',
        }}
 >
        {isBest && (
 <div
            style={{
-             background: 'rgba(34,197,94,0.15)',
+             background: '#14532d',
              color: '#4ade80',
-             padding: '8px 14px',
+             padding: '12px 22px',
              borderRadius: '999px',
-             fontSize: '13px',
-             fontWeight: 700
+             fontWeight: '700',
+             fontSize: '18px',
            }}
 >
            🔥 Best Deal
@@ -158,12 +140,12 @@ export default function ProductCard({
        {isFastest && (
 <div
            style={{
-             background: 'rgba(56,189,248,0.15)',
+             background: '#0c4a6e',
              color: '#38bdf8',
-             padding: '8px 14px',
+             padding: '12px 22px',
              borderRadius: '999px',
-             fontSize: '13px',
-             fontWeight: 700
+             fontWeight: '700',
+             fontSize: '18px',
            }}
 >
            ⚡ Fastest Delivery
