@@ -19,7 +19,7 @@ export default function Home() {
      return
    }
 
-   setResults(found.results || [])
+   setResults(found.results)
    setFilteredProducts([])
  }
 
@@ -40,28 +40,19 @@ export default function Home() {
    setFilteredProducts(matches)
  }
 
- const validResults = results.filter(
-   (item) =>
-     item &&
-     item.name &&
-     item.logo &&
-     item.price !== undefined &&
-     item.time !== undefined
- )
-
  const highestPrice =
-   validResults.length > 0
-     ? Math.max(...validResults.map((item) => item.price))
+   results.length > 0
+     ? Math.max(...results.map((item) => item.price))
      : null
 
  const lowestPrice =
-   validResults.length > 0
-     ? Math.min(...validResults.map((item) => item.price))
+   results.length > 0
+     ? Math.min(...results.map((item) => item.price))
      : null
 
  const fastestTime =
-   validResults.length > 0
-     ? Math.min(...validResults.map((item) => item.time))
+   results.length > 0
+     ? Math.min(...results.map((item) => item.time))
      : null
 
  return (
@@ -72,45 +63,40 @@ export default function Home() {
          'radial-gradient(circle at top, #0f172a 0%, #020617 60%)',
        display: 'flex',
        justifyContent: 'center',
-       alignItems: 'center',
-       padding: '30px 16px',
+       padding: '24px',
        fontFamily: 'Inter, sans-serif',
      }}
 >
 <div
        style={{
          width: '100%',
-         maxWidth: '1100px',
-         display: 'flex',
-         justifyContent: 'center',
+         maxWidth: '700px',
        }}
 >
+       {/* TOP BOX */}
 <div
          style={{
-           width: '100%',
-           maxWidth: '430px',
-           background: 'rgba(15,23,42,0.88)',
-           border: '1px solid rgba(148,163,184,0.15)',
-           backdropFilter: 'blur(18px)',
-           borderRadius: '28px',
+           background: 'rgba(15,23,42,0.82)',
+           border: '1px solid rgba(148,163,184,0.12)',
+           borderRadius: '32px',
            padding: '28px',
-           boxShadow: '0 25px 50px rgba(0,0,0,0.45)',
-           boxSizing: 'border-box',
+           backdropFilter: 'blur(18px)',
+           marginBottom: '28px',
+           boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
          }}
 >
-         {/* HEADER */}
 <div
            style={{
              textAlign: 'center',
-             marginBottom: '24px',
+             marginBottom: '28px',
            }}
 >
 <h1
              style={{
-               fontSize: '42px',
-               lineHeight: '46px',
-               marginBottom: '12px',
-               fontWeight: '800',
+               fontSize: 'clamp(42px, 6vw, 68px)',
+               lineHeight: 1,
+               marginBottom: '14px',
+               fontWeight: 900,
                color: 'white',
              }}
 >
@@ -120,7 +106,7 @@ export default function Home() {
 <p
              style={{
                color: '#94a3b8',
-               fontSize: '15px',
+               fontSize: 'clamp(15px, 2vw, 18px)',
              }}
 >
              Compare prices instantly across apps
@@ -141,12 +127,12 @@ export default function Home() {
              placeholder="Search groceries..."
              style={{
                width: '100%',
-               padding: '16px',
-               borderRadius: '16px',
+               padding: '18px',
+               borderRadius: '18px',
                border: '1px solid #1e293b',
                background: '#020617',
                color: 'white',
-               fontSize: '15px',
+               fontSize: '16px',
                outline: 'none',
                boxSizing: 'border-box',
              }}
@@ -192,38 +178,31 @@ export default function Home() {
            onClick={comparePrices}
            style={{
              width: '100%',
-             padding: '16px',
-             borderRadius: '16px',
+             padding: '18px',
+             borderRadius: '18px',
              border: 'none',
              background: 'linear-gradient(90deg,#84cc16,#4ade80)',
              color: '#052e16',
-             fontWeight: '800',
-             fontSize: '16px',
+             fontWeight: 900,
+             fontSize: '18px',
              cursor: 'pointer',
-             marginBottom: '24px',
            }}
 >
            Compare Prices
 </button>
-
-         {/* RESULTS */}
-<div
-           style={{
-             display: 'flex',
-             flexDirection: 'column',
-             gap: '16px',
-           }}
->
-           {validResults.map((item) => (
-<ProductCard
-               key={item.name}
-               item={item}
-               isBest={item.price === lowestPrice}
-               isFastest={item.time === fastestTime}
-               highestPrice={highestPrice}
-             />
-           ))}
 </div>
+
+       {/* RESULTS */}
+<div>
+         {results.map((item) => (
+<ProductCard
+             key={item.name}
+             item={item}
+             isBest={item.price === lowestPrice}
+             isFastest={item.time === fastestTime}
+             highestPrice={highestPrice}
+           />
+         ))}
 </div>
 </div>
 </main>
