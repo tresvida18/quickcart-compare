@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import ProductCard from '@/components/ProductCard'
-import { products } from '@/components/products'
+import { products } from '@/components/data/products'
 
 export default function Home() {
  const [product, setProduct] = useState('')
