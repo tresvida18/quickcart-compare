@@ -33,7 +33,7 @@ export default function Home() {
 
    const matches = products
      .filter((item) =>
-       item.name.toLowerCase().startsWith(value.toLowerCase())
+       item.name.toLowerCase().includes(value.toLowerCase())
      )
      .map((item) => item.name)
 
@@ -63,41 +63,31 @@ export default function Home() {
          'radial-gradient(circle at top, #0f172a 0%, #020617 70%)',
        display: 'flex',
        justifyContent: 'center',
-       alignItems: 'center',
-       padding: '24px',
-       fontFamily: 'Inter, sans-serif',
+       padding: '24px 16px',
        boxSizing: 'border-box',
+       fontFamily: 'Inter, sans-serif',
      }}
 >
 <div
        style={{
          width: '100%',
          maxWidth: '520px',
-         minWidth: '320px',
-         background: 'rgba(15,23,42,0.92)',
-         border: '1px solid rgba(148,163,184,0.12)',
-         backdropFilter: 'blur(16px)',
-         borderRadius: '26px',
-         padding: '24px',
-         boxSizing: 'border-box',
-         boxShadow: '0 20px 40px rgba(0,0,0,0.35)',
        }}
 >
        {/* HEADER */}
 <div
          style={{
            textAlign: 'center',
-           marginBottom: '24px',
+           marginBottom: '28px',
          }}
 >
 <h1
            style={{
-             fontSize: '36px',
-             lineHeight: '40px',
-             marginBottom: '10px',
-             fontWeight: 900,
+             fontSize: '42px',
+             lineHeight: 1,
              color: 'white',
-             letterSpacing: '-1px',
+             fontWeight: 900,
+             marginBottom: '10px',
            }}
 >
            ⚡ QuickCart
@@ -109,7 +99,6 @@ export default function Home() {
            style={{
              color: '#94a3b8',
              fontSize: '14px',
-             margin: 0,
            }}
 >
            Compare prices instantly across apps
@@ -120,7 +109,7 @@ export default function Home() {
 <div
          style={{
            position: 'relative',
-           marginBottom: '16px',
+           marginBottom: '14px',
          }}
 >
 <input
@@ -135,7 +124,7 @@ export default function Home() {
              border: '1px solid #1e293b',
              background: '#020617',
              color: 'white',
-             fontSize: '15px',
+             fontSize: '16px',
              outline: 'none',
              boxSizing: 'border-box',
            }}
@@ -152,7 +141,7 @@ export default function Home() {
                border: '1px solid #1e293b',
                borderRadius: '14px',
                overflow: 'hidden',
-               zIndex: 20,
+               zIndex: 50,
              }}
 >
              {filteredProducts.map((item) => (
@@ -164,10 +153,9 @@ export default function Home() {
                  }}
                  style={{
                    padding: '14px 16px',
+                   color: 'white',
                    cursor: 'pointer',
                    borderBottom: '1px solid #0f172a',
-                   color: 'white',
-                   fontSize: '14px',
                  }}
 >
                  {item}
@@ -187,10 +175,10 @@ export default function Home() {
            border: 'none',
            background: 'linear-gradient(90deg,#84cc16,#4ade80)',
            color: '#052e16',
-           fontWeight: 800,
            fontSize: '16px',
+           fontWeight: 800,
            cursor: 'pointer',
-           marginBottom: '20px',
+           marginBottom: '26px',
          }}
 >
          Compare Prices
