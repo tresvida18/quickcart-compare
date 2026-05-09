@@ -60,11 +60,11 @@ export default function Home() {
      style={{
        minHeight: '100vh',
        background:
-         'radial-gradient(circle at top, #0f172a 0%, #020617 65%)',
+         'radial-gradient(circle at top, #0f172a 0%, #020617 70%)',
        display: 'flex',
        justifyContent: 'center',
-       alignItems: 'flex-start',
-       padding: '20px',
+       alignItems: 'center',
+       padding: '24px',
        fontFamily: 'Inter, sans-serif',
        boxSizing: 'border-box',
      }}
@@ -72,12 +72,13 @@ export default function Home() {
 <div
        style={{
          width: '100%',
-         maxWidth: '420px',
-         background: 'rgba(15,23,42,0.9)',
+         maxWidth: '520px',
+         minWidth: '320px',
+         background: 'rgba(15,23,42,0.92)',
          border: '1px solid rgba(148,163,184,0.12)',
          backdropFilter: 'blur(16px)',
-         borderRadius: '24px',
-         padding: '20px',
+         borderRadius: '26px',
+         padding: '24px',
          boxSizing: 'border-box',
          boxShadow: '0 20px 40px rgba(0,0,0,0.35)',
        }}
@@ -86,13 +87,13 @@ export default function Home() {
 <div
          style={{
            textAlign: 'center',
-           marginBottom: '22px',
+           marginBottom: '24px',
          }}
 >
 <h1
            style={{
              fontSize: '36px',
-             lineHeight: '38px',
+             lineHeight: '40px',
              marginBottom: '10px',
              fontWeight: 900,
              color: 'white',
@@ -129,7 +130,7 @@ export default function Home() {
            placeholder="Search groceries..."
            style={{
              width: '100%',
-             padding: '15px',
+             padding: '16px',
              borderRadius: '14px',
              border: '1px solid #1e293b',
              background: '#020617',
@@ -152,7 +153,6 @@ export default function Home() {
                borderRadius: '14px',
                overflow: 'hidden',
                zIndex: 20,
-               boxSizing: 'border-box',
              }}
 >
              {filteredProducts.map((item) => (
@@ -182,7 +182,7 @@ export default function Home() {
          onClick={comparePrices}
          style={{
            width: '100%',
-           padding: '15px',
+           padding: '16px',
            borderRadius: '14px',
            border: 'none',
            background: 'linear-gradient(90deg,#84cc16,#4ade80)',
@@ -191,7 +191,6 @@ export default function Home() {
            fontSize: '16px',
            cursor: 'pointer',
            marginBottom: '20px',
-           boxSizing: 'border-box',
          }}
 >
          Compare Prices
