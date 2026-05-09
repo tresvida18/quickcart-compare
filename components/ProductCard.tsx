@@ -15,33 +15,34 @@ export default function ProductCard({
 <div
      style={{
        width: '100%',
-       boxSizing: 'border-box',
-       padding: '16px',
-       marginBottom: '16px',
-       borderRadius: '20px',
        background: '#081223',
+       borderRadius: '20px',
+       padding: '18px',
+       marginBottom: '18px',
+       boxSizing: 'border-box',
        border: isBest
-         ? '1px solid rgba(74,222,128,0.4)'
-         : isFastest
-         ? '1px solid rgba(56,189,248,0.4)'
+         ? '1px solid rgba(74,222,128,0.35)'
          : '1px solid rgba(255,255,255,0.08)',
-       boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+       overflow: 'hidden',
      }}
 >
+     {/* TOP */}
 <div
        style={{
          display: 'flex',
          justifyContent: 'space-between',
          alignItems: 'center',
-         gap: '16px',
+         gap: '12px',
+         width: '100%',
        }}
 >
-       {/* LEFT SIDE */}
+       {/* LEFT */}
 <div
          style={{
            display: 'flex',
            alignItems: 'center',
-           gap: '14px',
+           gap: '12px',
+           minWidth: 0,
            flex: 1,
          }}
 >
@@ -49,21 +50,28 @@ export default function ProductCard({
            src={item.logo}
            alt={item.name}
            style={{
-             width: '58px',
-             height: '58px',
+             width: '56px',
+             height: '56px',
              borderRadius: '14px',
              objectFit: 'cover',
              flexShrink: 0,
            }}
          />
 
-<div>
+<div
+           style={{
+             minWidth: 0,
+             overflow: 'hidden',
+           }}
+>
 <div
              style={{
                color: 'white',
-               fontWeight: 800,
                fontSize: '22px',
-               lineHeight: '24px',
+               fontWeight: 800,
+               whiteSpace: 'nowrap',
+               overflow: 'hidden',
+               textOverflow: 'ellipsis',
              }}
 >
              {item.name}
@@ -73,7 +81,7 @@ export default function ProductCard({
              style={{
                color: '#94a3b8',
                fontSize: '13px',
-               marginTop: '6px',
+               marginTop: '4px',
              }}
 >
              ⏱ {item.time} mins
@@ -81,7 +89,7 @@ export default function ProductCard({
 </div>
 </div>
 
-       {/* RIGHT SIDE */}
+       {/* RIGHT */}
 <div
          style={{
            textAlign: 'right',
@@ -91,15 +99,16 @@ export default function ProductCard({
 <div
            style={{
              color: 'white',
+             fontSize: '32px',
              fontWeight: 900,
-             fontSize: '30px',
              lineHeight: 1,
+             whiteSpace: 'nowrap',
            }}
 >
            ₹{item.price}
 </div>
 
-         {isBest && (
+         {isBest && highestPrice && (
 <div
              style={{
                color: '#94a3b8',
@@ -107,7 +116,7 @@ export default function ProductCard({
                marginTop: '4px',
              }}
 >
-             Save ₹{highestPrice! - item.price}
+             Save ₹{highestPrice - item.price}
 </div>
          )}
 </div>
